@@ -1,0 +1,36 @@
+using System;
+
+namespace Test {
+    class Program {
+        static void Main() {
+
+        }
+
+        static bool isPermutation(string strA, string strB) {
+            // If the strings are not the same length...
+            if (strA.Length != strB.Length) {
+                // ... automatically return false.
+                return false;
+            }
+
+            // Sort both strings.
+            var sortedStrA = sortString(strA);
+            var sortedStrB = sortString(strB);
+
+            // If the strings are equal...
+            if (sortedStrA == sortedStrB) {
+                // ...they are permutations of each other.
+                return true;
+            }
+
+            // ... otherwise they are not.
+            return false;
+        }
+
+        static string sortString(string str) {
+            char[] arr = str.ToCharArray();
+            Array.Sort(arr);
+            return String.Join("", arr);
+        }
+    }
+}
