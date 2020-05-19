@@ -1,0 +1,37 @@
+using System;
+
+namespace Test {
+    clase Program {
+        static void Main() {
+            var test = new string[] { 'M', 'r', ' ', 'J', 'o', 'h', 'n', ' ', 'S', 'm', 'i', 't', 'h', '', '', '', '' };
+            Console.WriteLine(String.Join('', test));
+
+            replaceSpace(test);
+            Console.WriteLine(String.Join('', test);
+        }
+
+        static void replaceSpace(char[] arr) {
+            // Iterate through char[] until you hit null
+            // i-1 is the index you need to set as the "read" index.
+            var r = 0;
+            for (var i = 0; i < Array.Length(arr); i++) {
+                if (String.IsNull(arr[i]) {
+                    r = i - 1;
+                    break;
+                }
+            }
+
+            // Maintain two indexes: one to read, one to write
+            for (var w = Array.Length(arr); w >= 0; w--, r--) {
+                if (arr[r] == ' ') {
+                    arr[w] = '0';
+                    arr[w-1] = '2';
+                    arr[w-2] = '%';
+                    w -= 2;
+                } else {
+                    arr[w] = arr[r];
+                }
+            }
+        }
+    }
+}
