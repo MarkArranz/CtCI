@@ -1,0 +1,18 @@
+static string compress(string str) {
+    int counter = 0;
+    char? prevChar = null;
+    var compStr = new ArrayList();
+
+    for (var i = 0; i < str.Length; i++)
+    {
+        if (str[i] == prevChar) {
+        counter++;
+    } else {
+        compStr.append(prevChar);
+        compStr.append(counter);
+        prevChar = str[i];
+        counter = 1;
+    }
+
+    return compStr.Length < str.Length) ? compStr : str;
+}
