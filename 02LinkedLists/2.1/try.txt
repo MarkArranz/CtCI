@@ -1,0 +1,270 @@
+2.1 Given unsorted linked list, write an algo to remove dups. (E.C. do without temp variable)
+
+class Node {
+    // "Pointer"
+    Node next = null;
+    int data;
+
+    public Node(int d) {
+        data = d;
+    }
+
+    void appendToTail(int d) {
+        // Create a new node to add to the end.
+        Node end = new Node(d);
+
+        // Starting at this node (beginning).
+        Node n = this;
+        // Iterate through the nodes until you find one without a "next" value.
+        while (n.next != null) {
+            n = n.next;
+        }
+        // Set the current "last" node to point to the new "last" node.
+        n.next = end;
+    }
+}
+
+Given:
+A = { 10, B }
+B = { 12, C }
+C = { 5, D }
+D = { 9, E }
+E { 5, F }
+F { 15, null }
+
+Strategy:
+    Create a data structure to keep track of the values you have seen.
+    Visit each node.
+    If value has been seen, "remove node".
+
+        * Take the `next` of the current node
+
+        * set it to the previous node's `next`
+
+    Else mark the value of the node as "seen".
+
+
+    Data Structures Candidates:
+
+    1. boolean array
+
+    * we are working with integer values
+
+    * an array's index can act like a "key" based on the integer value and store a value as seen using "true or false"
+
+    * example: [ false, true, true, true, true ]
+
+    * Hash Table
+
+    | Key   | Value |
+
+    | "Pat" | 101   |
+
+    | "Jaime" | 110 |
+
+    2. bit vector 8 bit array
+
+    * bit array (integer)
+
+    * example: 0000 0000 0000 0000 0000 0000 0000 0000
+
+
+    Given:
+
+    a = { data: 10, next: b }
+
+    b = { data: 12, next: c }
+
+    c = { data: 5, next: d }
+
+    c = { data: 9, next: e }
+
+    e = { data: 5, next: f }
+
+    f = { data: 15, next: null }
+
+
+
+Solution:
+func deDupLinkedList(n) {
+   // Console.log(n)
+   // { data: 10, next: b }
+
+    // Create a data structure to see if there aren't any next pointers.
+
+
+    // Init array
+
+
+    // Store value of first node
+
+    array.append(n.data)
+
+
+    // see if theres another node to visit
+
+    while(n.next != null) {
+
+    // if yes, visit next node, store value
+
+    new node nextNode = n.next
+
+    for (int i=0; i < array.Count; i++) {
+
+    if (array[i] == nextNode.data) {
+
+    // remove nextNode
+
+    // to remove node currentNode.next, nextNode.next
+
+
+    break;
+
+    }
+
+    }
+
+    array.append(nextNode.data)
+
+    }
+
+    // return
+
+    return n
+
+     // if no, exit loop
+
+
+    // comparision to check if n.data is already there, remove node
+
+    // return first node
+
+
+    // Iterate thru array to fully populate all values/nodes
+
+
+
+    // If value has been seen, "remove node".
+
+    //  * Take the `next` of the current node
+
+    //  * set it to the previous node's `next`
+
+    // Else mark the value of the node as "seen".
+
+}
+
+RECURSIVE:
+func dedupLinkedList(n) {
+
+    let valsSeen = [];
+
+    viewValues(n, valsSeen, null);
+
+    return n
+
+}
+
+func viewValues(n, valsSeen, prevNode) {
+
+    if (valsSeen.contains(n.data)) {
+
+    // I need the previous node so I can set n.next to prev.next
+
+    // This "removes" n from the list
+
+    prev.next = n.next;
+
+    } else {
+
+    // Add new val
+
+    valsSeen.append(n.data);
+
+    }
+
+
+    // Visit next node if there is one
+
+    if (n.next) {
+
+    viewValues(n.next, valsSeen, n);
+
+    }
+
+}
+
+ITERATIVE:
+func dedupLinkedList(n) {
+
+    let valsSeen = [];
+
+    let prevNode;
+
+    while (n.next != null) {
+
+    if (valsSeen.contains(n.data)) {
+
+    // I need the previous node so I can set n.next to prev.next
+
+    // This "removes" n from the list
+
+    prevNode.next = n.next;
+
+    } else {
+
+    // Add new val
+
+    valsSeen.append(n.data);
+
+    }
+
+
+    // Visit next node if there is one
+
+    if (n.next) {
+
+    // Reset my values
+
+    prevNode = n
+
+    n = n.next
+
+    }
+
+    }
+
+
+    return n
+
+}
+
+func viewValues(n, valsSeen, prevNode) {
+
+    if (valsSeen.contains(n.data)) {
+
+    // I need the previous node so I can set n.next to prev.next
+
+    // This "removes" n from the list
+
+    prev.next = n.next;
+
+    } else {
+
+    // Add new val
+
+    valsSeen.append(n.data);
+
+    }
+
+
+    // Visit next node if there is one
+
+    if (n.next) {
+
+    viewValues(n.next, valsSeen, n);
+
+    }
+
+}
+
