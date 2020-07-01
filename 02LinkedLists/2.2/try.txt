@@ -1,0 +1,102 @@
+2.2 Implement an algorithm to find the kth to last element of a singly linked list
+
+Reminder:
+class Node {
+    Node next = null;
+    int data;
+
+    public Node(int d) {
+        data = d;
+    }
+
+    void appendToTail(int d) {
+        Node end = new Node(d);
+        Node n = this;
+        while (n.next != null) {
+            n = n.next;
+        }
+        n.next = end;
+    }
+}
+
+// We are give k = integer
+
+// Brute force way
+// Have as many nodes as given kth
+// array of k size = storing nodes
+
+// M: Reverse the linked list, then return kth element
+// M: User runner to go ahead k-1 nodes, then iterate runner and current until you reach an empty next
+
+// Given k = 2 => Return 2nd to last element
+
+1 <- c
+2 <- r
+3
+4
+5
+6
+7
+8
+9
+10
+
+void returnKElement (node n, int k) {
+    if (k <= 0) {
+        throw new Exception();
+    }
+
+    count = 0;
+    while (n.next != null) {
+        count++;
+    }
+
+    if (count < k) {
+        throw new Exception();
+    }
+
+
+    new node c = n;
+    new node r = n;
+
+    for (var i = 1; i < k; i++) {
+        r = r.next;
+    }
+
+    while (r.next != null) {
+        c = c.next;
+        r = r.next;
+    }
+
+    return c;
+}
+
+// Solution
+public static int nthToLast(LinkedListNode head, int k) {
+    if (head == null) {
+        return 0;
+    }
+
+    // k = 2
+    // head = node(4)
+    int i = nthToLast(head.next, k) + 1;
+
+    if (i == k) {
+        System.out.println(head.data);
+    }
+
+    return i;
+}
+
+node* nthToLast(node* head, int k, int& i) {
+    if (head == NULL) {
+        return NULL;
+    }
+        node * nd = nthToLast(head->next, k, i);
+
+    if (i == k) {
+        return head;
+    }
+    return nd;
+}
+
