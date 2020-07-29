@@ -1,0 +1,78 @@
+class Node {
+    // "Pointer"
+    Node next = null;
+    int data;
+
+    public Node(int d) {
+        data = d;
+    }
+
+    void appendToTail(int d) {
+        // Create a new node to add to the end.
+        Node end = new Node(d);
+
+        // Starting at this node (beginning).
+        Node n = this;
+        // Iterate through the nodes until you find one without a "next" value.
+        while (n.next != null) {
+            n = n.next;
+        }
+        // Set the current "last" node to point to the new "last" node.
+        n.next = end;
+    }
+
+    void print() {
+        // Iterate through the nodes until you find one without a "next" value.
+        while (n.next != null) {
+            Console.WriteLine(n.data);
+            n = n.next;
+        }
+    }
+}
+
+3 => 4 => 7 => 11 => 10 => 1
+x = 10
+
+1st:
+
+function AroundX(Node node, int x) {
+    Node head, mid, lessRunner, greaterRunner;
+    
+    if (node == null)
+    {
+        throw new Exception("Node is null.");
+    }
+
+    while (node != null) {
+        if (node.data < x) {
+            // Init head if needed
+            if (head == null) {
+                head = node;
+                lessRunner = node;
+            }
+            else
+            {
+                lessRunner.next = node;
+                lessRunner = node;
+            }
+        }
+        else
+        {
+            if (mid == null) {
+                mid = node;
+                greaterRunner = node;
+            } 
+            else
+            {
+                greaterRunner.next = node;
+                greaterRunner = node;
+            }
+        }
+
+        node = node.next;
+    }
+
+    greaterRunner.next = null
+    lessRunner.next = mid;
+    return head;
+}

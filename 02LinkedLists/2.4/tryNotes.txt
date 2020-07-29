@@ -1,0 +1,39 @@
+Given:
+    node: 3 => 4 => 7 => 11 => 10 => 1
+    x: 10
+
+1st: 3
+    head: 3 => 4 => 7 => 11 => 10 => 1
+    mid: null
+    lessRunner: 3 => 4 => 7 => 11 => 10 => 1
+    greaterRunner: null
+2nd: 4
+    head: 3 => 4 => 7 => 11 => 10 => 1
+    mid: null
+    lessRunner: 4 => 7 => 11 => 10 => 1
+    greaterRunner: null
+3rd: 7 
+    head: 3 => 4 => 7 => 11 => 10 => 1
+    mid: null
+    lessRunner: 7 => 11 => 10 => 1
+    greaterRunner: null
+4th: 11
+    head: 3 => 4 => 7 => 11 => 10 => 1
+    mid: 11 => 10 => 1
+    lessRunner: 7 => 11 => 10 => 1
+    greaterRunner: 11 => 10 => 1
+5th: 10
+    head: 3 => 4 => 7 => 11 => 10 => 1
+    mid: 11 => 10 => 1
+    lessRunner: 7 => 11 => 10 => 1
+    greaterRunner: 10 => 1
+6th: 1
+    head: 3 => 4 => 7 => 1
+    mid: 11 => 10 => 1
+    lessRunner: 7 => 1
+    greaterRunner: 10 => 1
+end: null
+    head: 3 => 4 => 7 => 1 => 11 => 10
+    mid: 11 => 10
+    lessRunner: 7 => 1 => 11 => 10
+    greaterRunner: 10 
